@@ -1,7 +1,8 @@
-const API_BASE = "http://localhost:8000"; // Adjust to your backend URL
+const API_BASE = "http://localhost:8000"; 
 
 export const fetchParkingStatus = async () => {
-  const res = await fetch(`${API_BASE}/parking-status`);
+  const res = await fetch(`${API_BASE}/status`);
+  if (!res.ok) throw new Error("Failed to fetch parking status");
   return res.json();
 };
 
@@ -15,3 +16,6 @@ export const fetchTotalIncome = async () => {
   const res = await fetch(`${API_BASE}/total-income`);
   return res.json();
 };
+
+
+
